@@ -7,11 +7,29 @@ Created on Sat Jun 15 06:12:15 2024
 
 import pandas as pd
 import streamlit as st 
-st.set_page_config(page_title="Bank data", page_icon="bank", layout="wide")
-st.title("  :bank: Bank Report Search App")
+st.set_page_config(page_title="Bank Report Search", page_icon="bank", layout="wide")
+st.title("  :bank: :blue[Bank Statement Search App]")
 fl = st.file_uploader(" Upload a file using 'Browse files' ", type=(["csv"]))
+st.button("Rerun")  
 if fl is not None:
-    bnkdata = pd.read_csv(fl, header=22)
-    stinput = st.text_input("enter keyword to search(Case sensitive")
-    dfs1 = bnkdata.loc[bnkdata['   Description   '].str.contains(stinput, case=False)]
-    st.write(dfs1)
+    @st.cache_data
+    def load_data(fl):
+        Bankdata = pd.read_csv(fl, header=22)
+        return Bankdata
+    Bankdata = load_data(fl)
+    Bankdata['   Withdrawals ']= pd.to_numeric(Bankdata['   Withdrawals '], errors='coerce') 
+    Bankdata['   Balance   ']= pd.to_numeric(Bankdata['   Balance   '], errors='coerce')
+    Bankdata[' Deposits ']= pd.to_numeric(Bankdata[' Deposits '],  errors='coerce')
+    Bankdata = Bankdata.drop('Unnamed: 5', axis=1)
+
+    stinput = st.text_input("Enter keyword to search -")
+    if stinput is not None:
+       dfs1 = Bankdata.loc[Bankdata['   Description   '].str.contains(stinput, case=False)]
+       dfs1w = dfs1['   Withdrawals '].sum()
+       dfs1d = dfs1[' Deposits '].sum()
+
+       st.write(f':money_with_wings: :red[WITHDRAWALS  -:    {dfs1w}                ]')
+       st.write(f':moneybag: :green[DEPOSITS   -:   {dfs1d}                 ]')
+       with st.expander("View Transactions"):
+         st.dataframe(dfs1)
+   
