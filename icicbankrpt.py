@@ -7,6 +7,7 @@ Created on Wed Jun 19 18:13:14 2024
 
 import pandas as pd
 import streamlit as st 
+import xlrd
 st.set_page_config(page_title="Bank Statement Search", page_icon="bank", layout="wide")
 st.title("  :bank: :blue[ICIC Bank Statement Search App]")
 fl = st.file_uploader(" Upload a file using 'Browse files' ", type=(["xls"]))
@@ -21,9 +22,6 @@ if fl is not None:
     Bankdata.rename(columns={'Withdrawal Amount (INR )':'Withdrawals', 'Deposit Amount (INR )':'Deposits'}, inplace=True)
     print('columns 3', Bankdata.columns)
     #print('head', Bankdata.head(7))
-    #dfs1 = Bankdata.loc[Bankdata['Description'].str.contains('Airtel', case=False)]
-                    
-    #Bankdata['Deposits']= Bankdata[' Deposits '].fillna(0).astype(int)
     Bankdata['Withdrawals']= pd.to_numeric(Bankdata['Withdrawals'], errors='coerce') 
     #Bankdata['Balance']= pd.to_numeric(Bankdata['Balance'], errors='coerce')
     Bankdata['Deposits']= pd.to_numeric(Bankdata['Deposits'],  errors='coerce')
