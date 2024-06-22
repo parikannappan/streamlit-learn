@@ -9,9 +9,11 @@ import pandas as pd
 import streamlit as st 
 import xlrd
 st.set_page_config(page_title="Bank Statement Search", page_icon="bank", layout="wide")
-st.title("  :bank: :blue[ICIC Bank Statement Search App]")
+st.title("  :bank: :blue[ICICI Bank Statement Search App]")
 fl = st.file_uploader(" Upload a file using 'Browse files' ", type=(["xls"]))
-st.button("Rerun")  
+st.button("Rerun") 
+
+ 
 if fl is not None:
     @st.cache_data
     def load_data(fl):
@@ -27,7 +29,18 @@ if fl is not None:
     Bankdata['Deposits']= pd.to_numeric(Bankdata['Deposits'],  errors='coerce')
     Bankdata = Bankdata.drop(['Unnamed: 0','Cheque Number'], axis=1)
     Bankdata['Transaction Remarks'].fillna('', inplace=True)
-
+    with st.expander("View All Data"):
+       st.dataframe(Bankdata[['Value Date','Withdrawals', 'Deposits','Transaction Remarks']])   
+    top_5_withdrawals = Bankdata.sort_values(by='Withdrawals', ascending=False).head(6)  
+    #top_5_withdrawals = top_5_withdrawals.reset_index(drop=True)
+    #top_5_wthdropt  = top_5_withdrawals.drop(index=0, axis=0, inplace=False) #drop Totals row
+    top_5_deposits = Bankdata.sort_values(by='Deposits', ascending=False).head(6)
+    #top_5_deposits = top_5_deposits.reset_index(drop=True)
+    #top_5_depdropt  = top_5_deposits.drop(index=0, axis=0, inplace=False)
+    with st.expander("Top 5 Withdrawls"):
+       st.dataframe(top_5_withdrawals)   
+    with st.expander("Top 5 Deposits"):  
+       st.dataframe(top_5_deposits)
     stinput = st.text_input("Enter keyword to search -")
     #
     if len(stinput) > 0:
