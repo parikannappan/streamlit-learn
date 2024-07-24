@@ -1,6 +1,6 @@
 import streamlit as st
-st.set_page_config(page_title="Temple Donnatikons", page_icon="temple", layout="wide")
-st.title("  :temple: :blue[The Anjaneyar Sannidhi Rennovation Donation Requirnent ]")
+st.set_page_config(page_title="Temple Donnations", page_icon="temple", layout="wide")
+st.title("  :hindu_temple: :blue[The Anjaneyar Sannidhi Rennovation Donation Requirment ]")
 st.image('anjanayaspk.jpg', caption='Sri Hanuman Thirukovil')
 st.markdown("https://g.co/kgs/Txd2fJH" )
 st.write("*The Anjaneyar Sannidhi opposite Sri Padalatri Narasimha Perumal temple, SP Koil is a well renowned and older temple dedicated to Anjaneya Swami",
