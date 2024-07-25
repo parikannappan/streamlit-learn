@@ -26,4 +26,4 @@ teams = [players[i:i + 2] for i in range(0, len(players), 2)]
 
 # Print the teams
 for idx, team in enumerate(teams, 1):
-    print(f"Team {idx}: {team}")
+    st.write("Team {idx}: {team}")
