@@ -14,6 +14,9 @@ text8 = st.text_input("Player 8", key = "player_8")
 text9 = st.text_input("Player 7", key="player_9")
 text10 = st.text_input("Player 8", key = "player_10")
 
+players = [text1, text2, text3, text4, text5,
+           "Praveena", "Caldwell", "Mani", "Rajeev", "Rahul"]
+
 # Shuffle the list to ensure randomness
 random.shuffle(players)
 
