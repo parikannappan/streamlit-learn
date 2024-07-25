@@ -3,8 +3,16 @@ import streamlit as st
 # List of 10 players
 #players = ["Jram", "pari", "Valentine", "Siraj", "Ryan",
 #           "Praveena", "Caldwell", "Mani", "Rajeev", "Rahul"]
-stinput = st.text_input("Enter keyword to search -")
-
+text1 = st.text_input("Player 1", key="player_1")
+text2 = st.text_input("Player 2", key = "player_2")
+text3 = st.text_input("Player 3", key="player_3")
+text4 = st.text_input("Player 4", key = "player_4")
+text5 = st.text_input("Player 5", key="player_5")
+text6 = st.text_input("Player 6", key = "player_6")
+text7 = st.text_input("Player 7", key="player_7")
+text8 = st.text_input("Player 8", key = "player_8")
+text9 = st.text_input("Player 7", key="player_9")
+text10 = st.text_input("Player 8", key = "player_10")
 
 # Shuffle the list to ensure randomness
 random.shuffle(players)
