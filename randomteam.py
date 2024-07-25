@@ -18,8 +18,10 @@ with col2:
       #text9 = st.text_input("Player 9", key="player_9")
       #text10 = st.text_input("Player 10", key = "player_10")
 
-players = [text1, text2, text3, text4, text5,
-           text6, text7, text8, text9, text10]
+#players = [text1, text2, text3, text4, text5,
+#           text6, text7, text8, text9, text10]
+players = [text1, text2, text6, text7 ]
+
 print(players)
 # Shuffle the list to ensure randomness
 random.shuffle(players)
