@@ -6,6 +6,7 @@ st.title("  :game_die: :blue[Random team creation]")
 col1, col2 = st.columns(2)
 with col1: 
       text1 = st.text_input("Player 1")
+      print('text1 -', text1)
       text2 = st.text_input("Player 2")
       text3 = st.text_input("Player 3", key="player_3")
       text4 = st.text_input("Player 4", key = "player_4")
