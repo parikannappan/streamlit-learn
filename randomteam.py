@@ -57,13 +57,33 @@ if len(text12) > 0:
 from itertools import combinations
 #teamnames
 #players = ['player1', 'player2', 'player3', 'player4']
-comb_set = combinations(teamnames, 2)
+noof_teams= len(teamnames)
+groupa = teamnames[0:noof_teams//2]
+groupb = teamnames[noof_teams//2:]
+print(groupa)
+print(groupb)
+#players = ['player1', 'player2', 'player3', 'player4']
+#groupa
+comb_seta = list(combinations(groupa, 2))
 #print(comb_set)
-game_dict = {}
+game_dicta = {}
 
-for idx, team in enumerate(comb_set, 1):
+for idx, team in enumerate(comb_seta, 1):
     #print(f"Game {gamd}: {team[0]+ 'vs' +team[1]}")
-    game_dict['game' + str(idx)] = [team[0]+ ' ' + 'vs' + ' ' +team[1]]
-print(game_dict)
-st.dataframe(game_dict)
+    game_dicta['game' + str(idx)] = [team[0]+  ' ' + 'vs' + ' ' +team[1]]
+print(game_dicta)
+
+#groupb
+comb_setb = list(combinations(groupb, 2))
+#print(comb_set)
+game_dictb = {}
+
+for idxb, teamb in enumerate(comb_setb, 1):
+    #print(f"Game {gamd}: {teamb[0]+ 'vs' +teamb[1]}")
+    game_dictb['game' + str(idxb)] = [teamb[0] + ' ' + 'vs' + ' ' +teamb[1]]
+print(game_dictb)
+st.write('*Group A fixuters')
+st.dataframe(game_dicta)
+st.write('*Group B fixuters')
+st.dataframe(game_dicta)
 #st.write(game_dict)
