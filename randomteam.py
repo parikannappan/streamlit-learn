@@ -70,7 +70,7 @@ game_dicta = {}
 
 for idx, team in enumerate(comb_seta, 1):
     #print(f"Game {gamd}: {team[0]+ 'vs' +team[1]}")
-    game_dicta['game' + str(idx)] = [team[0]+  ' ' + 'vs' + ' ' +team[1]]
+     game_dicta['game' + str(idx)] = [[team[0]+  '  ' + 'vs' + '  ' +team[1]], [str(teamd.get(team[0])) + '  ' + 'VS' + '' + str(teamd.get(team[1]))]]
 print(game_dicta)
 
 #groupb
@@ -80,7 +80,7 @@ game_dictb = {}
 
 for idxb, teamb in enumerate(comb_setb, 1):
     #print(f"Game {gamd}: {teamb[0]+ 'vs' +teamb[1]}")
-    game_dictb['game' + str(idxb)] = [teamb[0] + ' ' + 'vs' + ' ' +teamb[1]]
+    game_dictb['game' + str(idxb)] = [teamb[0] + '  ' + 'vs' + '  ' +teamb[1]], [str(teamd.get(teamb[0])) + '  ' + 'VS' + '  ' +  str(teamd.get(teamb[1]))]
 print(game_dictb)
 st.write('*Group A fixuters')
 st.dataframe(game_dicta)
