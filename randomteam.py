@@ -83,7 +83,7 @@ for idxb, teamb in enumerate(comb_setb, 1):
     game_dictb['game' + str(idxb)] = [teamb[0] + '  ' + 'vs' + '  ' +teamb[1]], [str(teamd.get(teamb[0])) + '  ' + 'VS' + '  ' +  str(teamd.get(teamb[1]))]
 print(game_dictb)
 st.write('*Group A fixuters')
-st.dataframe(game_dicta)
+st.dataframe(game_dicta, width=int)
 st.write('*Group B fixuters')
 st.dataframe(game_dictb)
 #st.write(game_dict)
