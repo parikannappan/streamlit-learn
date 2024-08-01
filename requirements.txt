@@ -1,1 +1,3 @@
 xlrd
+ntscraper
+tqdm
