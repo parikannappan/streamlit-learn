@@ -10,7 +10,7 @@ tweets1 = scraper.get_tweets('DeFi_Hanzo', mode="user", number=5)
 for tweet in tweets['tweets']:
   tweettime = tweet.get('date')
   tweetscomb = tweet.get('text')
-  st.write('*Overdose_AI*')
+  st.write(f':red:*Overdose_AI*')
   st.write(tweettime)
   st.write(tweetscomb)
   list_coins = [word for word in tweetscomb.split() if word.startswith('$')]
@@ -19,7 +19,7 @@ for tweet1 in tweets1['tweets']:
   tweettime1 = tweet1.get('date')
   tweetscomb1 = tweet1.get('text')
   list_coins1 = [word for word in tweetscomb1.split() if word.startswith('$')]
-  st.write('*DeFi_Hanzo*')
+  st.write(f':red:*DeFi_Hanzo*')
   st.write(tweettime1)
   st.write(tweetscomb1)
   st.write(f'{list_coins1=}')
