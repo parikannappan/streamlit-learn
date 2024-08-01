@@ -59,9 +59,13 @@ from itertools import combinations
 #players = ['player1', 'player2', 'player3', 'player4']
 noof_teams= len(teamnames)
 groupa = teamnames[0:noof_teams//2]
+groupad = {}
+groupad = {'groupa': groupa}
 groupb = teamnames[noof_teams//2:]
-print(groupa)
-print(groupb)
+groupbd = {}
+groupbd = {'groupb': groupb}
+print(f'{groupad=}')
+print(f'{groupbd=}')
 #players = ['player1', 'player2', 'player3', 'player4']
 #groupa
 comb_seta = list(combinations(groupa, 2))
@@ -70,7 +74,7 @@ game_dicta = {}
 
 for idx, team in enumerate(comb_seta, 1):
     #print(f"Game {gamd}: {team[0]+ 'vs' +team[1]}")
-     game_dicta['game' + str(idx)] = [[team[0]+  '  ' + 'vs' + '  ' +team[1]], [str(teamd.get(team[0])) + '  ' + 'VS' + '' + str(teamd.get(team[1]))]]
+     game_dicta['game' + str(idx)] = [team[0]+  '  ' + 'vs' + '  ' +team[1]], [str(teamd.get(team[0])) + '  ' + 'VS' + ' ' + str(teamd.get(team[1]))], []
 print(game_dicta)
 
 #groupb
@@ -80,10 +84,14 @@ game_dictb = {}
 
 for idxb, teamb in enumerate(comb_setb, 1):
     #print(f"Game {gamd}: {teamb[0]+ 'vs' +teamb[1]}")
-    game_dictb['game' + str(idxb)] = [teamb[0] + '  ' + 'vs' + '  ' +teamb[1]], [str(teamd.get(teamb[0])) + '  ' + 'VS' + '  ' +  str(teamd.get(teamb[1]))]
+    game_dictb['game' + str(idxb)] = [teamb[0] + '  ' + 'vs' + '  ' +teamb[1]], [str(teamd.get(teamb[0])) + '  ' + 'VS' + '  ' +  str(teamd.get(teamb[1]))],[]
 print(game_dictb)
-st.write('*Group A fixuters')
+st.write('*Group A fixtuers')
 st.dataframe(game_dicta)
-st.write('*Group B fixuters')
+st.write('*Group B fixtuers')
 st.dataframe(game_dictb)
 #st.write(game_dict)
+myteams = st.table(groupad)
+#myteams.add_columns(groupbd)
+mygames = st.dataframe(game_dicta)
+mygames.add_rows(game_dictb)
