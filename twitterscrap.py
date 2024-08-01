@@ -1,7 +1,7 @@
 from ntscraper import Nitter
 import streamlit as st 
 st.set_page_config(page_title="Extract tweets", page_icon="twitter", layout="wide")
-st.title("  :incoming_enveloper: :blue-background[Twitter Search App ()]")
+st.title("  :incoming_envelope: :blue-background[Twitter Search App ()]")
 #st.markdown(MobileMonneyTransfer.png, unsafe_allow_html=True)
 #st.title("  :bank: :blue[Bank Statement Search App]")
 scraper = Nitter(log_level=1, skip_instance_check=False)
