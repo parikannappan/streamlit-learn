@@ -1,4 +1,4 @@
-import streamlit as streamlit
+import streamlit as st
 from streamlit_gsheets import GSheetsConnection
 
 url = "https://docs.google.com/spreadsheets/d/1-eEqWBsgVf2O-z2sjsrV5pKeU83z6qdo2szDlkLI3TU/edit?usp=sharing"
